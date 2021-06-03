@@ -17,7 +17,7 @@ class AchievementView {
   final String title;
   final String subTitle;
   final double elevation;
-
+  final EdgeInsets padding;
   OverlayEntry _overlayEntry;
 
   AchievementView(
@@ -39,6 +39,7 @@ class AchievementView {
     this.duration = const Duration(seconds: 3),
     this.title = "My Title",
     this.subTitle = "My subtitle with max 1 line",
+    this.padding
   });
 
   OverlayEntry _buildOverlay() {
@@ -59,6 +60,7 @@ class AchievementView {
           typeAnimationContent: typeAnimationContent,
           borderRadius: borderRadius,
           color: color,
+          padding: padding,
           finish: () {
             _hide();
           },

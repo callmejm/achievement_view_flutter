@@ -28,6 +28,7 @@ class AchievementWidget extends StatefulWidget {
   final TextStyle textStyleSubTitle;
   final String title;
   final String subTitle;
+  final EdgeInsets padding;
 
   const AchievementWidget({
     Key key,
@@ -48,6 +49,7 @@ class AchievementWidget extends StatefulWidget {
     this.textStyleSubTitle,
     this.title = "",
     this.subTitle = "",
+    this.padding = EdgeInsets.zero
   }) : super(key: key);
 
   @override
@@ -253,6 +255,7 @@ class AchievementWidgetState extends State<AchievementWidget>
   }
 
   EdgeInsets _buildPaddingContent() {
+    if(widget.padding.top > 0) return widget.padding;
     if (widget.isCircle) {
       return EdgeInsets.only(right: 25.0, top: 15.0, bottom: 15.0);
     }
