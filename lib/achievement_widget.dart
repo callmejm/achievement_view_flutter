@@ -28,7 +28,7 @@ class AchievementWidget extends StatefulWidget {
   final TextStyle textStyleSubTitle;
   final String title;
   final String subTitle;
-  final EdgeInsets padding;
+  final double height;
 
   const AchievementWidget({
     Key key,
@@ -49,7 +49,7 @@ class AchievementWidget extends StatefulWidget {
     this.textStyleSubTitle,
     this.title = "",
     this.subTitle = "",
-    this.padding = EdgeInsets.zero
+    this.height = 0.0
   }) : super(key: key);
 
   @override
@@ -141,7 +141,7 @@ class AchievementWidgetState extends State<AchievementWidget>
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        constraints: BoxConstraints(minHeight: HEIGHT_CARD),
+        constraints: BoxConstraints(minHeight: widget.height > 0 ? widget.height : HEIGHT_CARD),
         margin: EdgeInsets.all(MARGIN_CARD),
         child: ScaleTransition(
           scale: _curvedAnimationScale,
@@ -175,7 +175,7 @@ class AchievementWidgetState extends State<AchievementWidget>
 
   Widget _buildIcon() {
     return Container(
-      width: HEIGHT_CARD,
+      width: widget.height > 0 ? widget.height : HEIGHT_CARD,
       child: widget.icon,
     );
   }
