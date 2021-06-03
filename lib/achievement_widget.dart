@@ -255,7 +255,6 @@ class AchievementWidgetState extends State<AchievementWidget>
   }
 
   EdgeInsets _buildPaddingContent() {
-    if(widget.padding.top > 0) return widget.padding;
     if (widget.isCircle) {
       return EdgeInsets.only(right: 25.0, top: 15.0, bottom: 15.0);
     }
